@@ -39,8 +39,8 @@ Developed by **Slack-Hacker**.
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Slack-Hacker/MERN_STACK.git
-   cd MERN_STACK
+   git clone https://github.com/Slack-Hacker/SLACK_NOTES.git
+   cd SLACK_NOTES
    ```
 
 2. **Setup Backend**:
