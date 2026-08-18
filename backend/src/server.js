@@ -12,8 +12,15 @@ const PORT = process.env.PORT || 5001;
 
 // Cors Middleware
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173"],
-    credentials: true
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:5173",
+        "http://localhost",
+        "https://localhost",
+        "capacitor://localhost",
+    ],
+    credentials: true,
 }));
 
 // Body Parsing Middleware (Up to 15MB for image uploads)
