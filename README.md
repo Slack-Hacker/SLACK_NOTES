@@ -65,6 +65,24 @@ Developed by **Slack-Hacker**.
    npm run dev
    ```
 
+### 📱 Android Mobile App (Capacitor)
+
+The project includes built-in **Capacitor** native Android app configuration (`com.slackhacker.slacknotes`).
+
+1. **Build Web Production Bundle**:
+   ```bash
+   cd frontend
+   npm run build
+   ```
+
+2. **Sync Web Assets & Build APK**:
+   ```bash
+   npx cap sync android
+   cd android
+   ./gradlew assembleDebug
+   ```
+   *The generated `.apk` file will be located at `frontend/android/app/build/outputs/apk/debug/app-debug.apk`.*
+
 ---
 
 ## 📄 License
