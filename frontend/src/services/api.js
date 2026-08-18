@@ -1,7 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const API_BASE_URL = "http://localhost:5001/api/notes";
+const API_BASE_URL = "https://slacknotes-api.onrender.com/api/notes";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
