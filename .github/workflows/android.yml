@@ -34,9 +34,10 @@ jobs:
           cd frontend
           npm run build
 
-      - name: Sync Capacitor Android
+      - name: Update and Sync Capacitor Android
         run: |
           cd frontend
+          npx cap update android
           npx cap sync android
 
       - name: Fix Line Endings and Build Debug APK
