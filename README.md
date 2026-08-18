@@ -4,6 +4,8 @@ A modern full-stack note-taking web application built with **MongoDB, Express.js
 
 Developed by **Slack-Hacker**.
 
+![SlackNotes Dashboard Preview](./preview.png)
+
 ---
 
 ## ✨ Features
