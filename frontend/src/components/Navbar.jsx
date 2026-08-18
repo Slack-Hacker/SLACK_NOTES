@@ -165,7 +165,7 @@ const Navbar = ({ searchQuery = "", setSearchQuery, onEnableSelectionMode }) => 
                     placeholder="Search notes..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="input input-sm w-full pl-8 pr-8 rounded-xl bg-base-200/70 border-base-content/10 transition-all text-xs shadow-inner focus:outline-none focus:border-primary"
+                    className="input input-sm w-full pl-8 pr-8 rounded-xl bg-base-200/70 border border-base-content/10 transition-all text-xs shadow-inner focus:outline-none focus:border-primary"
                   />
                   {searchQuery && (
                     <button
