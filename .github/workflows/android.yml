@@ -34,10 +34,10 @@ jobs:
           cd frontend
           npm run build
 
-      - name: Copy Assets to Android Native Shell
+      - name: Sync Capacitor Android Native Project
         run: |
           cd frontend
-          npx cap copy android
+          npx cap sync android
 
       - name: Ensure Cordova Variables Script Exists
         run: |
@@ -49,10 +49,15 @@ jobs:
           cd frontend/android
           sed -i -e 's/\r$//' gradlew
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon --stacktrace 2>&1 | tee gradle_build.log
+          ./gradlew :app:assembleDebug --no-daemon --stacktrace 2>&1 | tee gradle_build.log
 
-      - name: Upload Build Log on Failure
-        if: failure()
+      - name: Inspect All Build Files
+        run: |
+          echo "=== SEARCHING ALL BUILD OUTPUT FILES ==="
+          find frontend/android/app/build -type f || true
+
+      - name: Upload Build Log
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Gradle-Build-Log
@@ -62,4 +67,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: SlackNotes-APK
-          path: frontend/android/app/build/outputs/**/*.apk
+          path: |
+            frontend/android/app/build/outputs/apk/debug/*.apk
+            frontend/android/app/build/outputs/**/*.apk
+            frontend/android/app/build/outputs/
