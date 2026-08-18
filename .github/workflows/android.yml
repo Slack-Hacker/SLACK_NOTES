@@ -39,11 +39,6 @@ jobs:
           cd frontend
           npx cap sync android
 
-      - name: Ensure Cordova Variables Script Exists
-        run: |
-          mkdir -p frontend/android/capacitor-cordova-android-plugins
-          echo "ext {}" > frontend/android/capacitor-cordova-android-plugins/cordova.variables.gradle
-
       - name: Fix Line Endings and Build Debug APK
         run: |
           cd frontend/android
