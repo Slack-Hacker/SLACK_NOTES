@@ -39,15 +39,17 @@ jobs:
           cd frontend
           npx cap copy android
 
-      - name: Build Debug APK
+      - name: Ensure Cordova Variables Script Exists
+        run: |
+          mkdir -p frontend/android/capacitor-cordova-android-plugins
+          echo "ext {}" > frontend/android/capacitor-cordova-android-plugins/cordova.variables.gradle
+
+      - name: Fix Line Endings and Build Debug APK
         run: |
           cd frontend/android
           sed -i -e 's/\r$//' gradlew
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon --stacktrace || (
-            ./gradlew assembleDebug --stacktrace -q 2>&1 | head -n 30 | while IFS= read -r line; do echo "::error::$line"; done
-            exit 1
-          )
+          ./gradlew assembleDebug --no-daemon
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4

@@ -1,0 +1,6 @@
+{
+	"appId": "com.slackhacker.slacknotes",
+	"appName": "SlackNotes",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
